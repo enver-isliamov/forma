@@ -1,1391 +1,396 @@
-<!DOCTYPE html><html lang="en" dir="ltr" class="bg-[color:var(--tg-theme-secondary-bg-color)]"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<meta name="csrf-token" content="Lm0LORZFn6SBwCn76Wvp5SR2GclGvOJMGOT9wO4c">
-
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<script src="telegram-web-app.js" type="4b8e06e3dd9d706bff97e8bf-text/javascript"></script>
-<script src="tgs-player.js" type="4b8e06e3dd9d706bff97e8bf-text/javascript"></script>
-<script type="4b8e06e3dd9d706bff97e8bf-text/javascript">
-            window.Telegram.WebApp.ready();
-            window.Telegram.WebApp.setBackgroundColor("secondary_bg_color");
-            window.Telegram.WebApp.setHeaderColor("secondary_bg_color");
-            sessionStorage.setItem('session_id',"eyJpdiI6InZWcXZOT1VrLy9VbnBpL1k1WWZwUHc9PSIsInZhbHVlIjoidnlXZHJleitaSDVsYS9QYmJjemRPZ2pJUVJHM0xKUXhCbUVZWGxaRktLeHNnMWJEM3Awd0xQeFlIV2l6MnEzVSIsIm1hYyI6ImNiMWFmMTcxZjhkYjAxZmU5NjQ4ZGQzZjNlZTc3ZjQ4OTkxNDgyOGQ4Yzg5ZmEwMWNjOTMwNmMyNGY0ZmQyOTAiLCJ0YWciOiIifQ==")
-        </script>
-
-<style>
-            .loading__label{
-                background-color: var(--tg-theme-hint-color);
-                width: 4rem;
-                height: 1.25rem;
-                margin-left: 1rem;
-                border-radius: 0.5rem;
-                margin-right: 1rem;
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                margin-bottom: 0.25rem
-            }
-            .loading__input{
-                background-color: var(--tg-theme-section-bg-color);
-                width: 100%;
-                height: 3rem;
-                border-radius: 0.5rem;
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-
-            @keyframes pulse {
-                50% {
-                    opacity: .5;
-                }
-            }
-        </style>
-<script type = "4b8e06e3dd9d706bff97e8bf-text/javascript">
-    const Ziggy = {
-        "url": "https:\/\/instantlyform.com",
-        "port": null,
-        "defaults": {},
-        "routes": {
-            "login": {
-                "uri": "login",
-                "methods": ["GET", "HEAD"]
-            },
-            "logout": {
-                "uri": "logout",
-                "methods": ["POST"]
-            },
-            "password.request": {
-                "uri": "forgot-password",
-                "methods": ["GET", "HEAD"]
-            },
-            "password.reset": {
-                "uri": "reset-password\/{token}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["token"]
-            },
-            "password.email": {
-                "uri": "forgot-password",
-                "methods": ["POST"]
-            },
-            "password.update": {
-                "uri": "reset-password",
-                "methods": ["POST"]
-            },
-            "register": {
-                "uri": "register",
-                "methods": ["GET", "HEAD"]
-            },
-            "verification.notice": {
-                "uri": "email\/verify",
-                "methods": ["GET", "HEAD"]
-            },
-            "verification.verify": {
-                "uri": "email\/verify\/{id}\/{hash}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id", "hash"]
-            },
-            "verification.send": {
-                "uri": "email\/verification-notification",
-                "methods": ["POST"]
-            },
-            "user-profile-information.update": {
-                "uri": "user\/profile-information",
-                "methods": ["PUT"]
-            },
-            "user-password.update": {
-                "uri": "user\/password",
-                "methods": ["PUT"]
-            },
-            "password.confirmation": {
-                "uri": "user\/confirmed-password-status",
-                "methods": ["GET", "HEAD"]
-            },
-            "password.confirm": {
-                "uri": "user\/confirm-password",
-                "methods": ["POST"]
-            },
-            "two-factor.login": {
-                "uri": "two-factor-challenge",
-                "methods": ["GET", "HEAD"]
-            },
-            "two-factor.enable": {
-                "uri": "user\/two-factor-authentication",
-                "methods": ["POST"]
-            },
-            "two-factor.confirm": {
-                "uri": "user\/confirmed-two-factor-authentication",
-                "methods": ["POST"]
-            },
-            "two-factor.disable": {
-                "uri": "user\/two-factor-authentication",
-                "methods": ["DELETE"]
-            },
-            "two-factor.qr-code": {
-                "uri": "user\/two-factor-qr-code",
-                "methods": ["GET", "HEAD"]
-            },
-            "two-factor.secret-key": {
-                "uri": "user\/two-factor-secret-key",
-                "methods": ["GET", "HEAD"]
-            },
-            "two-factor.recovery-codes": {
-                "uri": "user\/two-factor-recovery-codes",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.stats.index": {
-                "uri": "horizon\/api\/stats",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.workload.index": {
-                "uri": "horizon\/api\/workload",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.masters.index": {
-                "uri": "horizon\/api\/masters",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.monitoring.index": {
-                "uri": "horizon\/api\/monitoring",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.monitoring.store": {
-                "uri": "horizon\/api\/monitoring",
-                "methods": ["POST"]
-            },
-            "horizon.monitoring-tag.paginate": {
-                "uri": "horizon\/api\/monitoring\/{tag}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["tag"]
-            },
-            "horizon.monitoring-tag.destroy": {
-                "uri": "horizon\/api\/monitoring\/{tag}",
-                "methods": ["DELETE"],
-                "wheres": {
-                    "tag": ".*"
-                },
-                "parameters": ["tag"]
-            },
-            "horizon.jobs-metrics.index": {
-                "uri": "horizon\/api\/metrics\/jobs",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.jobs-metrics.show": {
-                "uri": "horizon\/api\/metrics\/jobs\/{id}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id"]
-            },
-            "horizon.queues-metrics.index": {
-                "uri": "horizon\/api\/metrics\/queues",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.queues-metrics.show": {
-                "uri": "horizon\/api\/metrics\/queues\/{id}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id"]
-            },
-            "horizon.jobs-batches.index": {
-                "uri": "horizon\/api\/batches",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.jobs-batches.show": {
-                "uri": "horizon\/api\/batches\/{id}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id"]
-            },
-            "horizon.jobs-batches.retry": {
-                "uri": "horizon\/api\/batches\/retry\/{id}",
-                "methods": ["POST"],
-                "parameters": ["id"]
-            },
-            "horizon.pending-jobs.index": {
-                "uri": "horizon\/api\/jobs\/pending",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.completed-jobs.index": {
-                "uri": "horizon\/api\/jobs\/completed",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.silenced-jobs.index": {
-                "uri": "horizon\/api\/jobs\/silenced",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.failed-jobs.index": {
-                "uri": "horizon\/api\/jobs\/failed",
-                "methods": ["GET", "HEAD"]
-            },
-            "horizon.failed-jobs.show": {
-                "uri": "horizon\/api\/jobs\/failed\/{id}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id"]
-            },
-            "horizon.retry-jobs.show": {
-                "uri": "horizon\/api\/jobs\/retry\/{id}",
-                "methods": ["POST"],
-                "parameters": ["id"]
-            },
-            "horizon.jobs.show": {
-                "uri": "horizon\/api\/jobs\/{id}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["id"]
-            },
-            "horizon.index": {
-                "uri": "horizon\/{view?}",
-                "methods": ["GET", "HEAD"],
-                "wheres": {
-                    "view": "(.*)"
-                },
-                "parameters": ["view"]
-            },
-            "profile.show": {
-                "uri": "user\/profile",
-                "methods": ["GET", "HEAD"]
-            },
-            "other-browser-sessions.destroy": {
-                "uri": "user\/other-browser-sessions",
-                "methods": ["DELETE"]
-            },
-            "current-user-photo.destroy": {
-                "uri": "user\/profile-photo",
-                "methods": ["DELETE"]
-            },
-            "api-tokens.index": {
-                "uri": "user\/api-tokens",
-                "methods": ["GET", "HEAD"]
-            },
-            "api-tokens.store": {
-                "uri": "user\/api-tokens",
-                "methods": ["POST"]
-            },
-            "api-tokens.update": {
-                "uri": "user\/api-tokens\/{token}",
-                "methods": ["PUT"],
-                "parameters": ["token"]
-            },
-            "api-tokens.destroy": {
-                "uri": "user\/api-tokens\/{token}",
-                "methods": ["DELETE"],
-                "parameters": ["token"]
-            },
-            "teams.create": {
-                "uri": "teams\/create",
-                "methods": ["GET", "HEAD"]
-            },
-            "teams.store": {
-                "uri": "teams",
-                "methods": ["POST"]
-            },
-            "teams.show": {
-                "uri": "teams\/{team}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["team"]
-            },
-            "teams.update": {
-                "uri": "teams\/{team}",
-                "methods": ["PUT"],
-                "parameters": ["team"]
-            },
-            "teams.destroy": {
-                "uri": "teams\/{team}",
-                "methods": ["DELETE"],
-                "parameters": ["team"]
-            },
-            "current-team.update": {
-                "uri": "current-team",
-                "methods": ["PUT"]
-            },
-            "team-members.store": {
-                "uri": "teams\/{team}\/members",
-                "methods": ["POST"],
-                "parameters": ["team"]
-            },
-            "team-members.update": {
-                "uri": "teams\/{team}\/members\/{user}",
-                "methods": ["PUT"],
-                "parameters": ["team", "user"]
-            },
-            "team-members.destroy": {
-                "uri": "teams\/{team}\/members\/{user}",
-                "methods": ["DELETE"],
-                "parameters": ["team", "user"]
-            },
-            "team-invitations.accept": {
-                "uri": "team-invitations\/{invitation}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["invitation"]
-            },
-            "team-invitations.destroy": {
-                "uri": "team-invitations\/{invitation}",
-                "methods": ["DELETE"],
-                "parameters": ["invitation"]
-            },
-            "pulse": {
-                "uri": "pulse",
-                "methods": ["GET", "HEAD"]
-            },
-            "telescope": {
-                "uri": "telescope\/{view?}",
-                "methods": ["GET", "HEAD"],
-                "wheres": {
-                    "view": "(.*)"
-                },
-                "parameters": ["view"]
-            },
-            "livewire.update": {
-                "uri": "livewire\/update",
-                "methods": ["POST"]
-            },
-            "livewire.upload-file": {
-                "uri": "livewire\/upload-file",
-                "methods": ["POST"]
-            },
-            "livewire.preview-file": {
-                "uri": "livewire\/preview-file\/{filename}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["filename"]
-            },
-            "ignition.healthCheck": {
-                "uri": "_ignition\/health-check",
-                "methods": ["GET", "HEAD"]
-            },
-            "ignition.executeSolution": {
-                "uri": "_ignition\/execute-solution",
-                "methods": ["POST"]
-            },
-            "ignition.updateConfig": {
-                "uri": "_ignition\/update-config",
-                "methods": ["POST"]
-            },
-            "form.index": {
-                "uri": "api\/form",
-                "methods": ["GET", "HEAD"]
-            },
-            "form.show": {
-                "uri": "api\/form\/{form}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "form.webhook.index": {
-                "uri": "api\/form\/{form}\/webhook",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "form.webhook.store": {
-                "uri": "api\/form\/{form}\/webhook",
-                "methods": ["POST"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webhook.destroy": {
-                "uri": "api\/webhook\/{webhook}",
-                "methods": ["DELETE"],
-                "parameters": ["webhook"],
-                "bindings": {
-                    "webhook": "id"
-                }
-            },
-            "geo": {
-                "uri": "geo",
-                "methods": ["GET", "HEAD"]
-            },
-            "terms": {
-                "uri": "terms-of-use",
-                "methods": ["GET", "HEAD"]
-            },
-            "privacy": {
-                "uri": "privacy-policy",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.login": {
-                "uri": "webBot\/login",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.auth": {
-                "uri": "webBot\/auth",
-                "methods": ["POST"]
-            },
-            "webBot.exception": {
-                "uri": "webBot\/exception",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.public.form.show": {
-                "uri": "webBot\/public\/form\/{form}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.public.form.submit": {
-                "uri": "webBot\/public\/form\/{form}\/submit",
-                "methods": ["POST"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.public.form.success": {
-                "uri": "webBot\/public\/form\/{form}\/success",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.service.callback": {
-                "uri": "webBot\/{driver}\/callback",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["driver"]
-            },
-            "webBot.service.redirect": {
-                "uri": "webBot\/{driver}\/redirect",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["driver"]
-            },
-            "webBot.service.destroy": {
-                "uri": "webBot\/service\/{service}",
-                "methods": ["DELETE"],
-                "parameters": ["service"],
-                "bindings": {
-                    "service": "id"
-                }
-            },
-            "webBot.form.service.create": {
-                "uri": "webBot\/form\/{form}\/service\/create\/{driver}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form", "driver"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.logout": {
-                "uri": "webBot\/logout",
-                "methods": ["POST"]
-            },
-            "webBot.oauth.authorize": {
-                "uri": "webBot\/authorize\/{client_id?}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["client_id"]
-            },
-            "webBot.form.app": {
-                "uri": "webBot\/form\/app",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.form.app-copy": {
-                "uri": "webBot\/form\/app-copy",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.form.index.subscription.presentation": {
-                "uri": "webBot\/form\/subscription\/presentation",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.form.subscription.presentation": {
-                "uri": "webBot\/form\/{form}\/subscription",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.settings": {
-                "uri": "webBot\/form\/{form}\/settings",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.copy": {
-                "uri": "webBot\/form\/{form}\/copy",
-                "methods": ["GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.saved": {
-                "uri": "webBot\/form\/{form}\/saved",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.submit": {
-                "uri": "webBot\/form\/{form}\/submit",
-                "methods": ["POST"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.success": {
-                "uri": "webBot\/form\/{form}\/success",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.download": {
-                "uri": "webBot\/form\/{form}\/download",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.closed": {
-                "uri": "webBot\/form\/{form}\/closed",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.index": {
-                "uri": "webBot\/form",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.form.create": {
-                "uri": "webBot\/form\/create",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.form.store": {
-                "uri": "webBot\/form",
-                "methods": ["POST"]
-            },
-            "webBot.form.show": {
-                "uri": "webBot\/form\/{form}",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.edit": {
-                "uri": "webBot\/form\/{form}\/edit",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.update": {
-                "uri": "webBot\/form\/{form}",
-                "methods": ["PUT", "PATCH"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.destroy": {
-                "uri": "webBot\/form\/{form}",
-                "methods": ["DELETE"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.chat.index": {
-                "uri": "webBot\/form\/{form}\/chat",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.chat.destroy": {
-                "uri": "webBot\/chat\/{chat}",
-                "methods": ["DELETE"],
-                "parameters": ["chat"],
-                "bindings": {
-                    "chat": "id"
-                }
-            },
-            "webBot.form.spreadsheet.index": {
-                "uri": "webBot\/form\/{form}\/spreadsheet",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.spreadsheet.store": {
-                "uri": "webBot\/form\/{form}\/spreadsheet",
-                "methods": ["POST"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.spreadsheet.destroy": {
-                "uri": "webBot\/spreadsheet\/{spreadsheet}",
-                "methods": ["DELETE"],
-                "parameters": ["spreadsheet"],
-                "bindings": {
-                    "spreadsheet": "id"
-                }
-            },
-            "webBot.form.webhook.index": {
-                "uri": "webBot\/form\/{form}\/webhook",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.webhook.create": {
-                "uri": "webBot\/form\/{form}\/webhook\/create",
-                "methods": ["GET", "HEAD"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.form.webhook.store": {
-                "uri": "webBot\/form\/{form}\/webhook",
-                "methods": ["POST"],
-                "parameters": ["form"],
-                "bindings": {
-                    "form": "id"
-                }
-            },
-            "webBot.webhook.destroy": {
-                "uri": "webBot\/webhook\/{webhook}",
-                "methods": ["DELETE"],
-                "parameters": ["webhook"],
-                "bindings": {
-                    "webhook": "id"
-                }
-            },
-            "webBot.upload": {
-                "uri": "webBot\/upload",
-                "methods": ["POST"]
-            },
-            "webBot.field.validate": {
-                "uri": "webBot\/field",
-                "methods": ["POST"]
-            },
-            "webBot.subscription.presentation": {
-                "uri": "webBot\/subscription",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.subscription.subscribe": {
-                "uri": "webBot\/subscription",
-                "methods": ["POST"]
-            },
-            "webBot.subscription.switch": {
-                "uri": "webBot\/subscription\/switch",
-                "methods": ["POST"]
-            },
-            "webBot.passport.token": {
-                "uri": "webBot\/oauth\/token",
-                "methods": ["POST"]
-            },
-            "webBot.passport.authorizations.authorize": {
-                "uri": "webBot\/oauth\/authorize",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.passport.token.refresh": {
-                "uri": "webBot\/oauth\/token\/refresh",
-                "methods": ["POST"]
-            },
-            "webBot.passport.authorizations.approve": {
-                "uri": "webBot\/oauth\/authorize",
-                "methods": ["POST"]
-            },
-            "webBot.passport.authorizations.deny": {
-                "uri": "webBot\/oauth\/authorize",
-                "methods": ["DELETE"]
-            },
-            "webBot.passport.tokens.index": {
-                "uri": "webBot\/oauth\/tokens",
-                "methods": ["GET", "HEAD"]
-            },
-            "webBot.passport.tokens.destroy": {
-                "uri": "webBot\/oauth\/tokens\/{token_id}",
-                "methods": ["DELETE"],
-                "parameters": ["token_id"]
-            },
-            "telegram.bot.webhook": {
-                "uri": "telegram\/{bot}\/webhook",
-                "methods": ["POST"],
-                "parameters": ["bot"]
-            }
-        }
-    };
-
-! function(t, r) {
-    "object" == typeof exports && "undefined" != typeof module ? module.exports = r() : "function" == typeof define && define.amd ? define(r) : (t || self).route = r()
-}(this, function() {
-    function t(t, r) {
-        for (var e = 0; e < r.length; e++) {
-            var n = r[e];
-            n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(t, "symbol" == typeof(o = function(t, r) {
-                if ("object" != typeof t || null === t) return t;
-                var e = t[Symbol.toPrimitive];
-                if (void 0 !== e) {
-                    var n = e.call(t, "string");
-                    if ("object" != typeof n) return n;
-                    throw new TypeError("@@toPrimitive must return a primitive value.")
-                }
-                return String(t)
-            }(n.key)) ? o : String(o), n)
-        }
-        var o
-    }
-
-    function r(r, e, n) {
-        return e && t(r.prototype, e), n && t(r, n), Object.defineProperty(r, "prototype", {
-            writable: !1
-        }), r
-    }
-
-    function e() {
-        return e = Object.assign ? Object.assign.bind() : function(t) {
-            for (var r = 1; r < arguments.length; r++) {
-                var e = arguments[r];
-                for (var n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n])
-            }
-            return t
-        }, e.apply(this, arguments)
-    }
-
-    function n(t) {
-        return n = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t) {
-            return t.__proto__ || Object.getPrototypeOf(t)
-        }, n(t)
-    }
-
-    function o(t, r) {
-        return o = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t, r) {
-            return t.__proto__ = r, t
-        }, o(t, r)
-    }
-
-    function i(t, r, e) {
-        return i = function() {
-            if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-            if (Reflect.construct.sham) return !1;
-            if ("function" == typeof Proxy) return !0;
-            try {
-                return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {})), !0
-            } catch (t) {
-                return !1
-            }
-        }() ? Reflect.construct.bind() : function(t, r, e) {
-            var n = [null];
-            n.push.apply(n, r);
-            var i = new(Function.bind.apply(t, n));
-            return e && o(i, e.prototype), i
-        }, i.apply(null, arguments)
-    }
-
-    function u(t) {
-        var r = "function" == typeof Map ? new Map : void 0;
-        return u = function(t) {
-            if (null === t || -1 === Function.toString.call(t).indexOf("[native code]")) return t;
-            if ("function" != typeof t) throw new TypeError("Super expression must either be null or a function");
-            if (void 0 !== r) {
-                if (r.has(t)) return r.get(t);
-                r.set(t, e)
-            }
-
-            function e() {
-                return i(t, arguments, n(this).constructor)
-            }
-            return e.prototype = Object.create(t.prototype, {
-                constructor: {
-                    value: e,
-                    enumerable: !1,
-                    writable: !0,
-                    configurable: !0
-                }
-            }), o(e, t)
-        }, u(t)
-    }
-    var f = String.prototype.replace,
-        a = /%20/g,
-        c = "RFC3986",
-        l = {
-            default: c,
-            formatters: {
-                RFC1738: function(t) {
-                    return f.call(t, a, "+")
-                },
-                RFC3986: function(t) {
-                    return String(t)
-                }
-            },
-            RFC1738: "RFC1738",
-            RFC3986: c
-        },
-        s = Object.prototype.hasOwnProperty,
-        v = Array.isArray,
-        p = function() {
-            for (var t = [], r = 0; r < 256; ++r) t.push("%" + ((r < 16 ? "0" : "") + r.toString(16)).toUpperCase());
-            return t
-        }(),
-        y = function(t, r) {
-            for (var e = r && r.plainObjects ? Object.create(null) : {}, n = 0; n < t.length; ++n) void 0 !== t[n] && (e[n] = t[n]);
-            return e
-        },
-        d = {
-            arrayToObject: y,
-            assign: function(t, r) {
-                return Object.keys(r).reduce(function(t, e) {
-                    return t[e] = r[e], t
-                }, t)
-            },
-            combine: function(t, r) {
-                return [].concat(t, r)
-            },
-            compact: function(t) {
-                for (var r = [{
-                        obj: {
-                            o: t
-                        },
-                        prop: "o"
-                    }], e = [], n = 0; n < r.length; ++n)
-                    for (var o = r[n], i = o.obj[o.prop], u = Object.keys(i), f = 0; f < u.length; ++f) {
-                        var a = u[f],
-                            c = i[a];
-                        "object" == typeof c && null !== c && -1 === e.indexOf(c) && (r.push({
-                            obj: i,
-                            prop: a
-                        }), e.push(c))
-                    }
-                return function(t) {
-                    for (; t.length > 1;) {
-                        var r = t.pop(),
-                            e = r.obj[r.prop];
-                        if (v(e)) {
-                            for (var n = [], o = 0; o < e.length; ++o) void 0 !== e[o] && n.push(e[o]);
-                            r.obj[r.prop] = n
-                        }
-                    }
-                }(r), t
-            },
-            decode: function(t, r, e) {
-                var n = t.replace(/\+/g, " ");
-                if ("iso-8859-1" === e) return n.replace(/%[0-9a-f]{2}/gi, unescape);
-                try {
-                    return decodeURIComponent(n)
-                } catch (t) {
-                    return n
-                }
-            },
-            encode: function(t, r, e, n, o) {
-                if (0 === t.length) return t;
-                var i = t;
-                if ("symbol" == typeof t ? i = Symbol.prototype.toString.call(t) : "string" != typeof t && (i = String(t)), "iso-8859-1" === e) return escape(i).replace(/%u[0-9a-f]{4}/gi, function(t) {
-                    return "%26%23" + parseInt(t.slice(2), 16) + "%3B"
-                });
-                for (var u = "", f = 0; f < i.length; ++f) {
-                    var a = i.charCodeAt(f);
-                    45 === a || 46 === a || 95 === a || 126 === a || a >= 48 && a <= 57 || a >= 65 && a <= 90 || a >= 97 && a <= 122 || o === l.RFC1738 && (40 === a || 41 === a) ? u += i.charAt(f) : a < 128 ? u += p[a] : a < 2048 ? u += p[192 | a >> 6] + p[128 | 63 & a] : a < 55296 || a >= 57344 ? u += p[224 | a >> 12] + p[128 | a >> 6 & 63] + p[128 | 63 & a] : (a = 65536 + ((1023 & a) << 10 | 1023 & i.charCodeAt(f += 1)), u += p[240 | a >> 18] + p[128 | a >> 12 & 63] + p[128 | a >> 6 & 63] + p[128 | 63 & a])
-                }
-                return u
-            },
-            isBuffer: function(t) {
-                return !(!t || "object" != typeof t || !(t.constructor && t.constructor.isBuffer && t.constructor.isBuffer(t)))
-            },
-            isRegExp: function(t) {
-                return "[object RegExp]" === Object.prototype.toString.call(t)
-            },
-            maybeMap: function(t, r) {
-                if (v(t)) {
-                    for (var e = [], n = 0; n < t.length; n += 1) e.push(r(t[n]));
-                    return e
-                }
-                return r(t)
-            },
-            merge: function t(r, e, n) {
-                if (!e) return r;
-                if ("object" != typeof e) {
-                    if (v(r)) r.push(e);
-                    else {
-                        if (!r || "object" != typeof r) return [r, e];
-                        (n && (n.plainObjects || n.allowPrototypes) || !s.call(Object.prototype, e)) && (r[e] = !0)
-                    }
-                    return r
-                }
-                if (!r || "object" != typeof r) return [r].concat(e);
-                var o = r;
-                return v(r) && !v(e) && (o = y(r, n)), v(r) && v(e) ? (e.forEach(function(e, o) {
-                    if (s.call(r, o)) {
-                        var i = r[o];
-                        i && "object" == typeof i && e && "object" == typeof e ? r[o] = t(i, e, n) : r.push(e)
-                    } else r[o] = e
-                }), r) : Object.keys(e).reduce(function(r, o) {
-                    var i = e[o];
-                    return r[o] = s.call(r, o) ? t(r[o], i, n) : i, r
-                }, o)
-            }
-        },
-        b = Object.prototype.hasOwnProperty,
-        h = {
-            brackets: function(t) {
-                return t + "[]"
-            },
-            comma: "comma",
-            indices: function(t, r) {
-                return t + "[" + r + "]"
-            },
-            repeat: function(t) {
-                return t
-            }
-        },
-        g = Array.isArray,
-        m = String.prototype.split,
-        j = Array.prototype.push,
-        w = function(t, r) {
-            j.apply(t, g(r) ? r : [r])
-        },
-        O = Date.prototype.toISOString,
-        E = l.default,
-        R = {
-            addQueryPrefix: !1,
-            allowDots: !1,
-            charset: "utf-8",
-            charsetSentinel: !1,
-            delimiter: "&",
-            encode: !0,
-            encoder: d.encode,
-            encodeValuesOnly: !1,
-            format: E,
-            formatter: l.formatters[E],
-            indices: !1,
-            serializeDate: function(t) {
-                return O.call(t)
-            },
-            skipNulls: !1,
-            strictNullHandling: !1
-        },
-        S = function t(r, e, n, o, i, u, f, a, c, l, s, v, p, y) {
-            var b, h = r;
-            if ("function" == typeof f ? h = f(e, h) : h instanceof Date ? h = l(h) : "comma" === n && g(h) && (h = d.maybeMap(h, function(t) {
-                    return t instanceof Date ? l(t) : t
-                })), null === h) {
-                if (o) return u && !p ? u(e, R.encoder, y, "key", s) : e;
-                h = ""
-            }
-            if ("string" == typeof(b = h) || "number" == typeof b || "boolean" == typeof b || "symbol" == typeof b || "bigint" == typeof b || d.isBuffer(h)) {
-                if (u) {
-                    var j = p ? e : u(e, R.encoder, y, "key", s);
-                    if ("comma" === n && p) {
-                        for (var O = m.call(String(h), ","), E = "", S = 0; S < O.length; ++S) E += (0 === S ? "" : ",") + v(u(O[S], R.encoder, y, "value", s));
-                        return [v(j) + "=" + E]
-                    }
-                    return [v(j) + "=" + v(u(h, R.encoder, y, "value", s))]
-                }
-                return [v(e) + "=" + v(String(h))]
-            }
-            var T, k = [];
-            if (void 0 === h) return k;
-            if ("comma" === n && g(h)) T = [{
-                value: h.length > 0 ? h.join(",") || null : void 0
-            }];
-            else if (g(f)) T = f;
-            else {
-                var x = Object.keys(h);
-                T = a ? x.sort(a) : x
-            }
-            for (var N = 0; N < T.length; ++N) {
-                var C = T[N],
-                    A = "object" == typeof C && void 0 !== C.value ? C.value : h[C];
-                if (!i || null !== A) {
-                    var D = g(h) ? "function" == typeof n ? n(e, C) : e : e + (c ? "." + C : "[" + C + "]");
-                    w(k, t(A, D, n, o, i, u, f, a, c, l, s, v, p, y))
-                }
-            }
-            return k
-        },
-        T = Object.prototype.hasOwnProperty,
-        k = Array.isArray,
-        x = {
-            allowDots: !1,
-            allowPrototypes: !1,
-            arrayLimit: 20,
-            charset: "utf-8",
-            charsetSentinel: !1,
-            comma: !1,
-            decoder: d.decode,
-            delimiter: "&",
-            depth: 5,
-            ignoreQueryPrefix: !1,
-            interpretNumericEntities: !1,
-            parameterLimit: 1e3,
-            parseArrays: !0,
-            plainObjects: !1,
-            strictNullHandling: !1
-        },
-        N = function(t) {
-            return t.replace(/&#(\d+);/g, function(t, r) {
-                return String.fromCharCode(parseInt(r, 10))
-            })
-        },
-        C = function(t, r) {
-            return t && "string" == typeof t && r.comma && t.indexOf(",") > -1 ? t.split(",") : t
-        },
-        A = function(t, r, e, n) {
-            if (t) {
-                var o = e.allowDots ? t.replace(/\.([^.[]+)/g, "[$1]") : t,
-                    i = /(\[[^[\]]*])/g,
-                    u = e.depth > 0 && /(\[[^[\]]*])/.exec(o),
-                    f = u ? o.slice(0, u.index) : o,
-                    a = [];
-                if (f) {
-                    if (!e.plainObjects && T.call(Object.prototype, f) && !e.allowPrototypes) return;
-                    a.push(f)
-                }
-                for (var c = 0; e.depth > 0 && null !== (u = i.exec(o)) && c < e.depth;) {
-                    if (c += 1, !e.plainObjects && T.call(Object.prototype, u[1].slice(1, -1)) && !e.allowPrototypes) return;
-                    a.push(u[1])
-                }
-                return u && a.push("[" + o.slice(u.index) + "]"),
-                    function(t, r, e, n) {
-                        for (var o = n ? r : C(r, e), i = t.length - 1; i >= 0; --i) {
-                            var u, f = t[i];
-                            if ("[]" === f && e.parseArrays) u = [].concat(o);
-                            else {
-                                u = e.plainObjects ? Object.create(null) : {};
-                                var a = "[" === f.charAt(0) && "]" === f.charAt(f.length - 1) ? f.slice(1, -1) : f,
-                                    c = parseInt(a, 10);
-                                e.parseArrays || "" !== a ? !isNaN(c) && f !== a && String(c) === a && c >= 0 && e.parseArrays && c <= e.arrayLimit ? (u = [])[c] = o : "__proto__" !== a && (u[a] = o) : u = {
-                                    0: o
-                                }
-                            }
-                            o = u
-                        }
-                        return o
-                    }(a, r, e, n)
-            }
-        },
-        D = function(t, r) {
-            var e = function(t) {
-                if (!t) return x;
-                if (null != t.decoder && "function" != typeof t.decoder) throw new TypeError("Decoder has to be a function.");
-                if (void 0 !== t.charset && "utf-8" !== t.charset && "iso-8859-1" !== t.charset) throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
-                return {
-                    allowDots: void 0 === t.allowDots ? x.allowDots : !!t.allowDots,
-                    allowPrototypes: "boolean" == typeof t.allowPrototypes ? t.allowPrototypes : x.allowPrototypes,
-                    arrayLimit: "number" == typeof t.arrayLimit ? t.arrayLimit : x.arrayLimit,
-                    charset: void 0 === t.charset ? x.charset : t.charset,
-                    charsetSentinel: "boolean" == typeof t.charsetSentinel ? t.charsetSentinel : x.charsetSentinel,
-                    comma: "boolean" == typeof t.comma ? t.comma : x.comma,
-                    decoder: "function" == typeof t.decoder ? t.decoder : x.decoder,
-                    delimiter: "string" == typeof t.delimiter || d.isRegExp(t.delimiter) ? t.delimiter : x.delimiter,
-                    depth: "number" == typeof t.depth || !1 === t.depth ? +t.depth : x.depth,
-                    ignoreQueryPrefix: !0 === t.ignoreQueryPrefix,
-                    interpretNumericEntities: "boolean" == typeof t.interpretNumericEntities ? t.interpretNumericEntities : x.interpretNumericEntities,
-                    parameterLimit: "number" == typeof t.parameterLimit ? t.parameterLimit : x.parameterLimit,
-                    parseArrays: !1 !== t.parseArrays,
-                    plainObjects: "boolean" == typeof t.plainObjects ? t.plainObjects : x.plainObjects,
-                    strictNullHandling: "boolean" == typeof t.strictNullHandling ? t.strictNullHandling : x.strictNullHandling
-                }
-            }(r);
-            if ("" === t || null == t) return e.plainObjects ? Object.create(null) : {};
-            for (var n = "string" == typeof t ? function(t, r) {
-                    var e, n = {},
-                        o = (r.ignoreQueryPrefix ? t.replace(/^\?/, "") : t).split(r.delimiter, Infinity === r.parameterLimit ? void 0 : r.parameterLimit),
-                        i = -1,
-                        u = r.charset;
-                    if (r.charsetSentinel)
-                        for (e = 0; e < o.length; ++e) 0 === o[e].indexOf("utf8=") && ("utf8=%E2%9C%93" === o[e] ? u = "utf-8" : "utf8=%26%2310003%3B" === o[e] && (u = "iso-8859-1"), i = e, e = o.length);
-                    for (e = 0; e < o.length; ++e)
-                        if (e !== i) {
-                            var f, a, c = o[e],
-                                l = c.indexOf("]="),
-                                s = -1 === l ? c.indexOf("=") : l + 1; - 1 === s ? (f = r.decoder(c, x.decoder, u, "key"), a = r.strictNullHandling ? null : "") : (f = r.decoder(c.slice(0, s), x.decoder, u, "key"), a = d.maybeMap(C(c.slice(s + 1), r), function(t) {
-                                return r.decoder(t, x.decoder, u, "value")
-                            })), a && r.interpretNumericEntities && "iso-8859-1" === u && (a = N(a)), c.indexOf("[]=") > -1 && (a = k(a) ? [a] : a), n[f] = T.call(n, f) ? d.combine(n[f], a) : a
-                        } return n
-                }(t, e) : t, o = e.plainObjects ? Object.create(null) : {}, i = Object.keys(n), u = 0; u < i.length; ++u) {
-                var f = i[u],
-                    a = A(f, n[f], e, "string" == typeof t);
-                o = d.merge(o, a, e)
-            }
-            return d.compact(o)
-        },
-        $ = /*#__PURE__*/ function() {
-            function t(t, r, e) {
-                var n, o;
-                this.name = t, this.definition = r, this.bindings = null != (n = r.bindings) ? n : {}, this.wheres = null != (o = r.wheres) ? o : {}, this.config = e
-            }
-            var e = t.prototype;
-            return e.matchesUrl = function(t) {
-                var r = this;
-                if (!this.definition.methods.includes("GET")) return !1;
-                var e = this.template.replace(/(\/?){([^}?]*)(\??)}/g, function(t, e, n, o) {
-                        var i, u = "(?<" + n + ">" + ((null == (i = r.wheres[n]) ? void 0 : i.replace(/(^\^)|(\$$)/g, "")) || "[^/?]+") + ")";
-                        return o ? "(" + e + u + ")?" : "" + e + u
-                    }).replace(/^\w+:\/\//, ""),
-                    n = t.replace(/^\w+:\/\//, "").split("?"),
-                    o = n[0],
-                    i = n[1],
-                    u = new RegExp("^" + e + "/?$").exec(decodeURI(o));
-                if (u) {
-                    for (var f in u.groups) u.groups[f] = "string" == typeof u.groups[f] ? decodeURIComponent(u.groups[f]) : u.groups[f];
-                    return {
-                        params: u.groups,
-                        query: D(i)
-                    }
-                }
-                return !1
-            }, e.compile = function(t) {
-                var r = this;
-                return this.parameterSegments.length ? this.template.replace(/{([^}?]+)(\??)}/g, function(e, n, o) {
-                    var i, u;
-                    if (!o && [null, void 0].includes(t[n])) throw new Error("Ziggy error: '" + n + "' parameter is required for route '" + r.name + "'.");
-                    if (r.wheres[n] && !new RegExp("^" + (o ? "(" + r.wheres[n] + ")?" : r.wheres[n]) + "$").test(null != (u = t[n]) ? u : "")) throw new Error("Ziggy error: '" + n + "' parameter does not match required format '" + r.wheres[n] + "' for route '" + r.name + "'.");
-                    return encodeURI(null != (i = t[n]) ? i : "").replace(/%7C/g, "|").replace(/%25/g, "%").replace(/\$/g, "%24")
-                }).replace(this.origin + "//", this.origin + "/").replace(/\/+$/, "") : this.template
-            }, r(t, [{
-                key: "template",
-                get: function() {
-                    var t = (this.origin + "/" + this.definition.uri).replace(/\/+$/, "");
-                    return "" === t ? "/" : t
-                }
-            }, {
-                key: "origin",
-                get: function() {
-                    return this.config.absolute ? this.definition.domain ? "" + this.config.url.match(/^\w+:\/\//)[0] + this.definition.domain + (this.config.port ? ":" + this.config.port : "") : this.config.url : ""
-                }
-            }, {
-                key: "parameterSegments",
-                get: function() {
-                    var t, r;
-                    return null != (t = null == (r = this.template.match(/{[^}?]+\??}/g)) ? void 0 : r.map(function(t) {
-                        return {
-                            name: t.replace(/{|\??}/g, ""),
-                            required: !/\?}$/.test(t)
-                        }
-                    })) ? t : []
-                }
-            }]), t
-        }(),
-        F = /*#__PURE__*/ function(t) {
-            var n, i;
-
-            function u(r, n, o, i) {
-                var u;
-                if (void 0 === o && (o = !0), (u = t.call(this) || this).t = null != i ? i : "undefined" != typeof Ziggy ? Ziggy : null == globalThis ? void 0 : globalThis.Ziggy, u.t = e({}, u.t, {
-                        absolute: o
-                    }), r) {
-                    if (!u.t.routes[r]) throw new Error("Ziggy error: route '" + r + "' is not in the route list.");
-                    u.i = new $(r, u.t.routes[r], u.t), u.u = u.l(n)
-                }
-                return u
-            }
-            i = t, (n = u).prototype = Object.create(i.prototype), n.prototype.constructor = n, o(n, i);
-            var f = u.prototype;
-            return f.toString = function() {
-                var t = this,
-                    r = Object.keys(this.u).filter(function(r) {
-                        return !t.i.parameterSegments.some(function(t) {
-                            return t.name === r
-                        })
-                    }).filter(function(t) {
-                        return "_query" !== t
-                    }).reduce(function(r, n) {
-                        var o;
-                        return e({}, r, ((o = {})[n] = t.u[n], o))
-                    }, {});
-                return this.i.compile(this.u) + function(t, r) {
-                    var e, n = t,
-                        o = function(t) {
-                            if (!t) return R;
-                            if (null != t.encoder && "function" != typeof t.encoder) throw new TypeError("Encoder has to be a function.");
-                            var r = t.charset || R.charset;
-                            if (void 0 !== t.charset && "utf-8" !== t.charset && "iso-8859-1" !== t.charset) throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
-                            var e = l.default;
-                            if (void 0 !== t.format) {
-                                if (!b.call(l.formatters, t.format)) throw new TypeError("Unknown format option provided.");
-                                e = t.format
-                            }
-                            var n = l.formatters[e],
-                                o = R.filter;
-                            return ("function" == typeof t.filter || g(t.filter)) && (o = t.filter), {
-                                addQueryPrefix: "boolean" == typeof t.addQueryPrefix ? t.addQueryPrefix : R.addQueryPrefix,
-                                allowDots: void 0 === t.allowDots ? R.allowDots : !!t.allowDots,
-                                charset: r,
-                                charsetSentinel: "boolean" == typeof t.charsetSentinel ? t.charsetSentinel : R.charsetSentinel,
-                                delimiter: void 0 === t.delimiter ? R.delimiter : t.delimiter,
-                                encode: "boolean" == typeof t.encode ? t.encode : R.encode,
-                                encoder: "function" == typeof t.encoder ? t.encoder : R.encoder,
-                                encodeValuesOnly: "boolean" == typeof t.encodeValuesOnly ? t.encodeValuesOnly : R.encodeValuesOnly,
-                                filter: o,
-                                format: e,
-                                formatter: n,
-                                serializeDate: "function" == typeof t.serializeDate ? t.serializeDate : R.serializeDate,
-                                skipNulls: "boolean" == typeof t.skipNulls ? t.skipNulls : R.skipNulls,
-                                sort: "function" == typeof t.sort ? t.sort : null,
-                                strictNullHandling: "boolean" == typeof t.strictNullHandling ? t.strictNullHandling : R.strictNullHandling
-                            }
-                        }(r);
-                    "function" == typeof o.filter ? n = (0, o.filter)("", n) : g(o.filter) && (e = o.filter);
-                    var i = [];
-                    if ("object" != typeof n || null === n) return "";
-                    var u = h[r && r.arrayFormat in h ? r.arrayFormat : r && "indices" in r ? r.indices ? "indices" : "repeat" : "indices"];
-                    e || (e = Object.keys(n)), o.sort && e.sort(o.sort);
-                    for (var f = 0; f < e.length; ++f) {
-                        var a = e[f];
-                        o.skipNulls && null === n[a] || w(i, S(n[a], a, u, o.strictNullHandling, o.skipNulls, o.encode ? o.encoder : null, o.filter, o.sort, o.allowDots, o.serializeDate, o.format, o.formatter, o.encodeValuesOnly, o.charset))
-                    }
-                    var c = i.join(o.delimiter),
-                        s = !0 === o.addQueryPrefix ? "?" : "";
-                    return o.charsetSentinel && (s += "iso-8859-1" === o.charset ? "utf8=%26%2310003%3B&" : "utf8=%E2%9C%93&"), c.length > 0 ? s + c : ""
-                }(e({}, r, this.u._query), {
-                    addQueryPrefix: !0,
-                    arrayFormat: "indices",
-                    encodeValuesOnly: !0,
-                    skipNulls: !0,
-                    encoder: function(t, r) {
-                        return "boolean" == typeof t ? Number(t) : r(t)
-                    }
-                })
-            }, f.v = function(t) {
-                var r = this;
-                t ? this.t.absolute && t.startsWith("/") && (t = this.p().host + t) : t = this.h();
-                var n = {},
-                    o = Object.entries(this.t.routes).find(function(e) {
-                        return n = new $(e[0], e[1], r.t).matchesUrl(t)
-                    }) || [void 0, void 0];
-                return e({
-                    name: o[0]
-                }, n, {
-                    route: o[1]
-                })
-            }, f.h = function() {
-                var t = this.p(),
-                    r = t.pathname,
-                    e = t.search;
-                return (this.t.absolute ? t.host + r : r.replace(this.t.url.replace(/^\w*:\/\/[^/]+/, ""), "").replace(/^\/+/, "/")) + e
-            }, f.current = function(t, r) {
-                var n = this.v(),
-                    o = n.name,
-                    i = n.params,
-                    u = n.query,
-                    f = n.route;
-                if (!t) return o;
-                var a = new RegExp("^" + t.replace(/\./g, "\\.").replace(/\*/g, ".*") + "$").test(o);
-                if ([null, void 0].includes(r) || !a) return a;
-                var c = new $(o, f, this.t);
-                r = this.l(r, c);
-                var l = e({}, i, u);
-                return !(!Object.values(r).every(function(t) {
-                    return !t
-                }) || Object.values(l).some(function(t) {
-                    return void 0 !== t
-                })) || function t(r, e) {
-                    return Object.entries(r).every(function(r) {
-                        var n = r[0],
-                            o = r[1];
-                        return Array.isArray(o) && Array.isArray(e[n]) ? o.every(function(t) {
-                            return e[n].includes(t)
-                        }) : "object" == typeof o && "object" == typeof e[n] && null !== o && null !== e[n] ? t(o, e[n]) : e[n] == o
-                    })
-                }(r, l)
-            }, f.p = function() {
-                var t, r, e, n, o, i, u = "undefined" != typeof window ? window.location : {},
-                    f = u.host,
-                    a = u.pathname,
-                    c = u.search;
-                return {
-                    host: null != (t = null == (r = this.t.location) ? void 0 : r.host) ? t : void 0 === f ? "" : f,
-                    pathname: null != (e = null == (n = this.t.location) ? void 0 : n.pathname) ? e : void 0 === a ? "" : a,
-                    search: null != (o = null == (i = this.t.location) ? void 0 : i.search) ? o : void 0 === c ? "" : c
-                }
-            }, f.has = function(t) {
-                return Object.keys(this.t.routes).includes(t)
-            }, f.l = function(t, r) {
-                var n = this;
-                void 0 === t && (t = {}), void 0 === r && (r = this.i), null != t || (t = {}), t = ["string", "number"].includes(typeof t) ? [t] : t;
-                var o = r.parameterSegments.filter(function(t) {
-                    return !n.t.defaults[t.name]
-                });
-                if (Array.isArray(t)) t = t.reduce(function(t, r, n) {
-                    var i, u;
-                    return e({}, t, o[n] ? ((i = {})[o[n].name] = r, i) : "object" == typeof r ? r : ((u = {})[r] = "", u))
-                }, {});
-                else if (1 === o.length && !t[o[0].name] && (t.hasOwnProperty(Object.values(r.bindings)[0]) || t.hasOwnProperty("id"))) {
-                    var i;
-                    (i = {})[o[0].name] = t, t = i
-                }
-                return e({}, this.g(r), this.m(t, r))
-            }, f.g = function(t) {
-                var r = this;
-                return t.parameterSegments.filter(function(t) {
-                    return r.t.defaults[t.name]
-                }).reduce(function(t, n, o) {
-                    var i, u = n.name;
-                    return e({}, t, ((i = {})[u] = r.t.defaults[u], i))
-                }, {})
-            }, f.m = function(t, r) {
-                var n = r.bindings,
-                    o = r.parameterSegments;
-                return Object.entries(t).reduce(function(t, r) {
-                    var i, u, f = r[0],
-                        a = r[1];
-                    if (!a || "object" != typeof a || Array.isArray(a) || !o.some(function(t) {
-                            return t.name === f
-                        })) return e({}, t, ((u = {})[f] = a, u));
-                    if (!a.hasOwnProperty(n[f])) {
-                        if (!a.hasOwnProperty("id")) throw new Error("Ziggy error: object passed as '" + f + "' parameter is missing route model binding key '" + n[f] + "'.");
-                        n[f] = "id"
-                    }
-                    return e({}, t, ((i = {})[f] = a[n[f]], i))
-                }, {})
-            }, f.valueOf = function() {
-                return this.toString()
-            }, f.check = function(t) {
-                return this.has(t)
-            }, r(u, [{
-                key: "params",
-                get: function() {
-                    var t = this.v();
-                    return e({}, t.params, t.query)
-                }
-            }]), u
-        }( /*#__PURE__*/ u(String));
-    return function(t, r, e, n) {
-        var o = new F(t, r, e, n);
-        return t ? o.toString() : o
-    }
-});
-
-<
-/script>
-            <link rel="preload" as="style" href="https://instantlyform.com/build/assets/app-09b39f12.css"><link rel="modulepreload" href="app-0a24e887.js"><link rel="stylesheet" href="app-09b39f12.css" data-navigate-track="reload"><script type="4b8e06e3dd9d706bff97e8bf-module" src="app-0a24e887.js" data-navigate-track="reload"></script>
-</head>
-<body class="font-sans antialiased overflow-x max-w-full" style="min-height:var(--tg-viewport-height); background-color:var(--tg-theme-secondary-bg-color); color: var(--tg-theme-text-color)">
-<div id="app" data-page="{" component":"auth\="" login","props":{"errors":{},"csrf_token":"lm0lorzfn6sbwcn76wvp5sr2gclgvojmgot9wo4c","layout":{"user":null},"status":[],"errorbags":[],"breadcrumbs":[],"session_id":"eyjpdii6ijdrqmx0mnzzuza2rm1etfjfzhu0yxc9psisinzhbhvlijoimtb0ahv0zwlsws9hzuxjvvjry2swcfo1dmv6y2tmrzdgnwj6txpmm2h4mdjrsm50akdzvkgrvwjtcffvbwyxmsisim1hyyi6imy5zdu1zde1yzy1ndq1yzk1ntm5mjnlzgnlnmi5nji2odhlotlkmziwmmq2mze5ytiwmjbmzduwmgnim2u3ndkilcj0ywcioiiifq="=&quot;},&quot;url&quot;:&quot;\/webBot\/login?session_id=eyJpdiI6IjdRQmx0MnZZUzA2Rm1ETFJFZHU0YXc9PSIsInZhbHVlIjoiMTB0aHV0ZWlSWS9hZUxJVVJRY2swcFo1dmV6Y2tmRzdGNWJ6TXpMM2h4MDJRSm50akdzVkgrVWJTcFFVbWYxMSIsIm1hYyI6ImY5ZDU1ZDE1YzY1NDQ1Yzk1NTM5MjNlZGNlNmI5NjI2ODhlOTlkMzIwMmQ2MzE5YTIwMjBmZDUwMGNiM2U3NDkiLCJ0YWciOiIifQ%3D%3D&quot;,&quot;version&quot;:&quot;7965f81a22bcf1fff0054ed574eefdb0&quot;}&quot;">
-<div style="height:var(--tg-viewport-height)">
-<div style="padding: 1rem;display: grid;gap: 1rem">
-<div>
-<div class="loading__label"></div>
-<div class="loading__input"></div>
+<div data-id="element-0" style="box-sizing: border-box; display: grid; gap: 16px; padding-top: 16px; padding-bottom: 16px; border: 0px solid rgb(229, 231, 235); width: 100%; background-color: rgb(244, 244, 245); color: rgb(0, 0, 0); font-size: 16px; line-height: 24px; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;;">
+  <div data-id="element-1" style="box-sizing: border-box; display: grid; gap: 16px; border: 0px solid rgb(229, 231, 235);">
+    <div data-id="element-2" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-3" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <h1 data-id="element-4" style="box-sizing: border-box; font-size: 24px; font-weight: 700; padding-left: 16px; padding-right: 16px; line-height: 32px; border: 0px solid rgb(229, 231, 235); margin: 0px;">Заявка на хранение шин</h1></div>
+      <div data-id="element-5" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-6" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-7" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-8" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-9" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">✔ Гарантируем полную сохранность ваших шин
+            <br data-id="element-10" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ Приведем в надлежащий для хранения вид
+            <br data-id="element-11" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ Не нужно самому носить шины
+            <br data-id="element-12" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ <strong data-id="element-13" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Работаем по договору</strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-14" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-15" style="box-sizing: border-box; position: relative; width: 2495px; overflow: hidden; border: 0px solid rgb(229, 231, 235);">
+        <canvas width="1744" height="1080" data-id="element-16" style="box-sizing: border-box; display: block; vertical-align: middle; width: 2495px; animation: 2s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite normal none running pulse; overflow: hidden; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); border-radius: 8px;"></canvas><img src="https://instantlyform-production.s3.eu-north-1.amazonaws.com/uploads/8nPunobFf5rs9TqzvwVurFBSjzOsCuiqcZNI32il.png" width="1744" height="1080" data-id="element-17" style="box-sizing: border-box; display: block; vertical-align: middle; max-width: 100%; height: 1545.06px; position: absolute; left: 0px; top: 0px; width: 2495px; overflow: hidden; border: 0px solid rgb(229, 231, 235);"></div>
+      <div data-id="element-18" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-19" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-20" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-21" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-22" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-23" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">ПОДСКАЗКА:</strong>Размер ваших колес можно узнать по надписи на шинах.
+            <br data-id="element-24" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">На картинке <strong data-id="element-25" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">R16</strong>это диаметр который нужно знать.</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-26" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-27" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-28" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Диаметр ваших колес:</span></label>
+      <div iserror="false" placeholder="175/65/ R14" data-id="element-29" style="box-sizing: border-box; width: 2495px; overflow: hidden; background-color: rgb(255, 255, 255); font-size: 16px; line-height: 24px; font-weight: 400; color: rgb(0, 0, 0); outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; border: 0px solid rgb(229, 231, 235);">
+        <a data-id="element-30" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-31" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">R15 и меньше</div>
+          <div data-id="element-32" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-33" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-34" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">R16 и больше</div>
+          <div data-id="element-35" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+      </div>
+      <div data-id="element-36" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-37" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-38" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-39" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-40" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-41" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-42" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-43" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Срок хранения:</span></label>
+      <div iserror="false" data-id="element-44" style="box-sizing: border-box; width: 2495px; overflow: hidden; background-color: rgb(255, 255, 255); font-size: 16px; line-height: 24px; font-weight: 400; color: rgb(0, 0, 0); outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; border: 0px solid rgb(229, 231, 235);">
+        <a data-id="element-45" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-46" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">1 месяц</div>
+          <div data-id="element-47" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-48" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-49" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">2 месяца</div>
+          <div data-id="element-50" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-51" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-52" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">3 месяца</div>
+          <div data-id="element-53" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-54" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-55" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">4 месяца</div>
+          <div data-id="element-56" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-57" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-58" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">5 месяцев</div>
+          <div data-id="element-59" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-60" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-61" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">6 месяцев</div>
+          <div data-id="element-62" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-63" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-64" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">7 месяцев</div>
+          <div data-id="element-65" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-66" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-67" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">8 месяцев</div>
+          <div data-id="element-68" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-69" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-70" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">9 месяцев</div>
+          <div data-id="element-71" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-72" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-73" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">10 месяцев</div>
+          <div data-id="element-74" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-75" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-76" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">11 месяцев</div>
+          <div data-id="element-77" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-78" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-79" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">12 месяцев</div>
+          <div data-id="element-80" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-81" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-82" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">Постоянное хранение</div>
+          <div data-id="element-83" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+      </div>
+      <div data-id="element-84" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-85" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-86" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-87" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-88" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">⚡ <strong data-id="element-89" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Постоянное хранение</strong>- дает приоритет записи на шиномонтаж и подвоз шин в оговоренный день.
+            <br data-id="element-90" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✅ R13-R15 ● 500р/месяц
+            <br data-id="element-91" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✅ R16-R21 ● 600р/месяц
+            <br data-id="element-92" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">+100р за комплект если с дисками</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-93" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-94" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <h1 data-id="element-95" style="box-sizing: border-box; font-size: 24px; font-weight: 700; padding-left: 16px; padding-right: 16px; line-height: 32px; border: 0px solid rgb(229, 231, 235); margin: 0px;">❓ ЧТО СТОИТ ЗНАТЬ?</h1></div>
+      <div data-id="element-96" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-97" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-98" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-99" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-100" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-101" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Вы можете забрать свой комплект колес и резины в любой момент, не дожидаясь окончания срока хранения.</strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-102" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-103" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-104" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваш адрес (только Симферополь)</span></label>
+      <input placeholder="ул. Куда Приехать 1" field="[object Object]" data-id="element-105" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px; margin: 0px;">
+      <div data-id="element-106" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-107" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-108" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-109" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-110" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-111" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">📍 Специалист приедет по указанному адресу</strong>
+            <br data-id="element-112" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">📝Заключаете договор хранения и оплачиваете.
+            <br data-id="element-113" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">⚡Поможет загрузить колеса и отвезем на склад.
+            <br data-id="element-114" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><strong data-id="element-115" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);"><em data-id="element-116" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Процедура занимает не более 20 мин.</em></strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-117" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-118" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-119" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Дата встречи:</span></label>
+      <div data-id="element-120" style="box-sizing: border-box; width: 2495px; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); padding: 4px;">
+        <div data-id="element-121" style="box-sizing: border-box; height: 34px; line-height: 34px; text-align: center; overflow: hidden; padding-left: 12px; padding-right: 12px; border: 0px solid rgb(229, 231, 235);">
+          <button type="button" data-id="element-122" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-123" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-124" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span><span data-id="element-125" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-126" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-127" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-128" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-129" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: right; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-130" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; left: auto; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-131" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); left: 4px; border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span><span data-id="element-132" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); left: 0px; border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-133" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: right; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-134" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-135" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button><span data-id="element-136" style="font-size: 14px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><button type="button" data-id="element-137" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(0, 0, 0) none 0px; color: rgb(0, 0, 0); white-space: nowrap; text-align: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(0, 0, 0); border-radius: 4px; padding: 0px 4px; margin: 0px;">Jun</button><button type="button" data-id="element-138" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(0, 0, 0) none 0px; color: rgb(0, 0, 0); white-space: nowrap; text-align: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(0, 0, 0); border-radius: 4px; padding: 0px 4px; margin: 0px;">2024</button></span></div>
+        <div data-id="element-139" style="position: relative; height: 224px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <table data-id="element-140" style="table-layout: fixed; border-collapse: separate; border-spacing: 0px; width: 2487px; height: 224px; box-sizing: border-box; text-align: center; text-indent: 0px; border: 0px solid rgb(229, 231, 235);">
+            <thead data-id="element-141" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+              <tr data-id="element-142" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <th data-id="element-143" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Su</th>
+                <th data-id="element-144" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Mo</th>
+                <th data-id="element-145" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Tu</th>
+                <th data-id="element-146" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">We</th>
+                <th data-id="element-147" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Th</th>
+                <th data-id="element-148" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Fr</th>
+                <th data-id="element-149" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Sa</th>
+              </tr>
+            </thead>
+            <tbody data-id="element-150" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+              <tr data-id="element-151" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-05-26" data-id="element-152" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-153" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">26</div>
+                </td>
+                <td title="2024-05-27" data-id="element-154" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-155" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">27</div>
+                </td>
+                <td title="2024-05-28" data-id="element-156" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-157" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">28</div>
+                </td>
+                <td title="2024-05-29" data-id="element-158" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-159" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">29</div>
+                </td>
+                <td title="2024-05-30" data-id="element-160" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-161" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">30</div>
+                </td>
+                <td title="2024-05-31" data-id="element-162" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-163" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">31</div>
+                </td>
+                <td title="2024-06-01" data-id="element-164" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-165" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">1</div>
+                </td>
+              </tr>
+              <tr data-id="element-166" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-02" data-id="element-167" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-168" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">2</div>
+                </td>
+                <td title="2024-06-03" data-id="element-169" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-170" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">3</div>
+                </td>
+                <td title="2024-06-04" data-id="element-171" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-172" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">4</div>
+                </td>
+                <td title="2024-06-05" data-id="element-173" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-174" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">5</div>
+                </td>
+                <td title="2024-06-06" data-id="element-175" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-176" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">6</div>
+                </td>
+                <td title="2024-06-07" data-id="element-177" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-178" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">7</div>
+                </td>
+                <td title="2024-06-08" data-id="element-179" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-180" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">8</div>
+                </td>
+              </tr>
+              <tr data-id="element-181" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-09" data-id="element-182" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-183" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">9</div>
+                </td>
+                <td title="2024-06-10" data-id="element-184" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-185" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">10</div>
+                </td>
+                <td title="2024-06-11" data-id="element-186" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-187" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">11</div>
+                </td>
+                <td title="2024-06-12" data-id="element-188" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-189" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">12</div>
+                </td>
+                <td title="2024-06-13" data-id="element-190" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-191" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">13</div>
+                </td>
+                <td title="2024-06-14" data-id="element-192" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-193" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">14</div>
+                </td>
+                <td title="2024-06-15" data-id="element-194" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-195" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">15</div>
+                </td>
+              </tr>
+              <tr data-id="element-196" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-16" data-id="element-197" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-198" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">16</div>
+                </td>
+                <td title="2024-06-17" data-id="element-199" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-200" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">17</div>
+                </td>
+                <td title="2024-06-18" data-id="element-201" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-202" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">18</div>
+                </td>
+                <td title="2024-06-19" data-id="element-203" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-204" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">19</div>
+                </td>
+                <td title="2024-06-20" data-id="element-205" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-206" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">20</div>
+                </td>
+                <td title="2024-06-21" data-id="element-207" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-208" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">21</div>
+                </td>
+                <td title="2024-06-22" data-id="element-209" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-210" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">22</div>
+                </td>
+              </tr>
+              <tr data-id="element-211" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-23" data-id="element-212" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-213" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">23</div>
+                </td>
+                <td title="2024-06-24" data-id="element-214" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-215" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">24</div>
+                </td>
+                <td title="2024-06-25" data-id="element-216" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-217" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">25</div>
+                </td>
+                <td title="2024-06-26" data-id="element-218" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-219" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">26</div>
+                </td>
+                <td title="2024-06-27" data-id="element-220" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-221" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">27</div>
+                </td>
+                <td title="2024-06-28" data-id="element-222" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-223" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">28</div>
+                </td>
+                <td title="2024-06-29" data-id="element-224" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-225" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">29</div>
+                </td>
+              </tr>
+              <tr data-id="element-226" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-30" data-id="element-227" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(0, 72, 143); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-228" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">30</div>
+                </td>
+                <td title="2024-07-01" data-id="element-229" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-230" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">1</div>
+                </td>
+                <td title="2024-07-02" data-id="element-231" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-232" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">2</div>
+                </td>
+                <td title="2024-07-03" data-id="element-233" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-234" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">3</div>
+                </td>
+                <td title="2024-07-04" data-id="element-235" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-236" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">4</div>
+                </td>
+                <td title="2024-07-05" data-id="element-237" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-238" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">5</div>
+                </td>
+                <td title="2024-07-06" data-id="element-239" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-240" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">6</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div data-id="element-241" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-242" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-243" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-244" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-245" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">Выберите подходящую дату когда будет удобно встретить специалиста и передать шины на хранение.
+            <br data-id="element-246" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-247" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-248" style="box-sizing: border-box; color: rgb(0, 0, 0); max-width: none; font-size: 16px; line-height: 24px; width: 2495px; white-space: break-spaces; overflow-wrap: break-word; border: 0px solid rgb(229, 231, 235); padding: 12px 16px;">
+        <p data-id="element-249" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px 0px 18.2857px;">⭐ <strong data-id="element-250" style="box-sizing: border-box; font-weight: 600; color: rgb(0, 0, 0); border: 0px solid rgb(229, 231, 235);">ШИНЫ ХРАНЯТСЯ В СООТВЕТСТВИИ С ГОСТ Р 54266-2010, КОТОРЫЙ ВКЛЮЧАЕТ В СЕБЯ:</strong>
+          <br data-id="element-251" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+        </p>
+        <ul data-id="element-252" style="box-sizing: border-box; list-style: outside none disc; border: 0px solid rgb(229, 231, 235); padding: 0px 0px 0px 25.1429px; margin: 18.2857px 0px 0px;">
+          <li data-id="element-253" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-254" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Температура от 18 до 35 С°</p>
+          </li>
+          <li data-id="element-255" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-256" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Защита от прямых солнечных лучей</p>
+          </li>
+          <li data-id="element-257" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-258" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Промышленная вентиляция</p>
+          </li>
+          <li data-id="element-259" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-260" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Влажность воздуха 50-80%</p>
+          </li>
+        </ul>
+      </div>
+      <div data-id="element-261" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-262" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+    </div>
+    <div data-id="element-263" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-264" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-265" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваш номер телефона</span></label>
+      <div field="[object Object]" placeholder="Телефон" data-id="element-266" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-267" style="box-sizing: border-box; position: relative; border: 0px solid rgb(229, 231, 235);">
+          <div data-id="element-268" style="box-sizing: border-box; position: absolute; top: 0px; bottom: 0px; display: flex; align-items: center; left: 0px; border: 0px solid rgb(229, 231, 235);">
+            <div clearable="false" data-id="element-269" style="box-sizing: border-box; height: 48px; width: 72px; background-color: rgba(0, 0, 0, 0); padding-top: 0px; padding-bottom: 0px; color: rgb(107, 114, 128); border: 0px solid rgba(0, 0, 0, 0); border-radius: 6px;">
+              <div data-id="element-270" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <ul data-id="element-271" style="box-sizing: border-box; list-style: outside none none; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); padding: 0px; margin: 0px;">
+                  <li data-id="element-272" style="box-sizing: border-box; font-size: 16px; line-height: 24px; border: 0px none rgba(107, 114, 128, 0.2);"><a data-id="element-273" style="box-sizing: border-box; color: rgb(0, 0, 0); display: flex; cursor: pointer; align-items: center; justify-content: space-between; border: 0px solid rgb(229, 231, 235); padding: 12px 16px; text-decoration: none;"><span data-id="element-274" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">🇺🇦</span><div data-id="element-275" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-id="element-276" style="box-sizing: border-box; display: block; vertical-align: middle; height: 16px; width: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" data-id="element-277" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"></path></svg></div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <input placeholder="+380(00) 000-00-00" data-id="element-278" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px 12px 72px; margin: 0px;">
+        </div>
+      </div>
+      <div data-id="element-279" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-280" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-281" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-282" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-283" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-284" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Начните с </strong>+7 </p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-285" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-286" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-287" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваше Имя:</span></label>
+      <input placeholder="Имя Фамилия" field="[object Object]" data-id="element-288" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px; margin: 0px;">
+      <div data-id="element-289" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-290" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-291" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-292" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-293" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">Имя и номер телефона будут идентеифицировать вас как владельца</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-294" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <button iserror="false" data-id="element-295" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 500; line-height: 24px; color: rgb(255, 255, 255); text-transform: none; appearance: button; background-color: rgb(51, 144, 236); cursor: pointer; width: 2495px; text-align: center; border: 0px solid rgb(229, 231, 235); padding: 12px 16px; margin: 0px;">Отправить</button>
+      <div data-id="element-296" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-297" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-298" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-299" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-300" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><em data-id="element-301" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Нажимая кнопку "отправить" вы даете согласие обработка персональных данных.</em>
+            <br data-id="element-302" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><strong data-id="element-303" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Затем свободный менеджер свяжется с вами, чтобы подтвердить заявку.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-<div class="loading__label"></div>
-<div class="loading__input"></div>
-</div>
-<div>
-<div class="loading__label"></div>
-<div class="loading__input" style="height:16rem"></div>
-</div>
-</div>
-</div>
-</div>
-<script src="rocket-loader.min.js" data-cf-settings="4b8e06e3dd9d706bff97e8bf-|49" defer=""></script>
-<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid ":"89b5138f4a99971b ","r ":1,"version ":"2024.4.1 ","token ":"89cc4e629d654601b6a52e25e4b4a52c "}"="" crossorigin="anonymous"></script>
-
-</body></html>
