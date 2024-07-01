@@ -1,58 +1,397 @@
-<!DOCTYPE html><html lang="en" dir="ltr" class="bg-[color:var(--tg-theme-secondary-bg-color)]"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<meta name="csrf-token" content="Lm0LORZFn6SBwCn76Wvp5SR2GclGvOJMGOT9wO4c">
 
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<script src="telegram-web-app.js" type="4b8e06e3dd9d706bff97e8bf-text/javascript"></script>
-<script src="tgs-player.js" type="4b8e06e3dd9d706bff97e8bf-text/javascript"></script>
-
-
-<style>
-            .loading__label{
-                background-color: var(--tg-theme-hint-color);
-                width: 4rem;
-                height: 1.25rem;
-                margin-left: 1rem;
-                border-radius: 0.5rem;
-                margin-right: 1rem;
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                margin-bottom: 0.25rem
-            }
-            .loading__input{
-                background-color: var(--tg-theme-section-bg-color);
-                width: 100%;
-                height: 3rem;
-                border-radius: 0.5rem;
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-
-            @keyframes pulse {
-                50% {
-                    opacity: .5;
-                }
-            }
-        </style>
-<link rel="preload" as="style" href="https://instantlyform.com/build/assets/app-09b39f12.css"><link rel="modulepreload" href="https://instantlyform.com/build/assets/app-0a24e887.js"><link rel="stylesheet" href="app-09b39f12.css" data-navigate-track="reload"><script type="4b8e06e3dd9d706bff97e8bf-module" src="app-0a24e887.js" data-navigate-track="reload"></script>
-</head>
-<body class="font-sans antialiased overflow-x max-w-full" style="min-height:var(--tg-viewport-height); background-color:var(--tg-theme-secondary-bg-color); color: var(--tg-theme-text-color)">
-<div id="app" data-page="{" component":"auth\="" login","props":{"errors":{},"csrf_token":"lm0lorzfn6sbwcn76wvp5sr2gclgvojmgot9wo4c","layout":{"user":null},"status":[],"errorbags":[],"breadcrumbs":[],"session_id":"eyjpdii6ijdrqmx0mnzzuza2rm1etfjfzhu0yxc9psisinzhbhvlijoimtb0ahv0zwlsws9hzuxjvvjry2swcfo1dmv6y2tmrzdgnwj6txpmm2h4mdjrsm50akdzvkgrvwjtcffvbwyxmsisim1hyyi6imy5zdu1zde1yzy1ndq1yzk1ntm5mjnlzgnlnmi5nji2odhlotlkmziwmmq2mze5ytiwmjbmzduwmgnim2u3ndkilcj0ywcioiiifq="=&quot;},&quot;url&quot;:&quot;\/webBot\/login?session_id=eyJpdiI6IjdRQmx0MnZZUzA2Rm1ETFJFZHU0YXc9PSIsInZhbHVlIjoiMTB0aHV0ZWlSWS9hZUxJVVJRY2swcFo1dmV6Y2tmRzdGNWJ6TXpMM2h4MDJRSm50akdzVkgrVWJTcFFVbWYxMSIsIm1hYyI6ImY5ZDU1ZDE1YzY1NDQ1Yzk1NTM5MjNlZGNlNmI5NjI2ODhlOTlkMzIwMmQ2MzE5YTIwMjBmZDUwMGNiM2U3NDkiLCJ0YWciOiIifQ%3D%3D&quot;,&quot;version&quot;:&quot;7965f81a22bcf1fff0054ed574eefdb0&quot;}&quot;">
-<div style="height:var(--tg-viewport-height)">
-<div style="padding: 1rem;display: grid;gap: 1rem">
-<div>
-<div class="loading__label"></div>
-<div class="loading__input"></div>
+<div data-id="element-0" style="box-sizing: border-box; display: grid; gap: 16px; padding-top: 16px; padding-bottom: 16px; border: 0px solid rgb(229, 231, 235); width: 100%; background-color: rgb(244, 244, 245); color: rgb(0, 0, 0); font-size: 16px; line-height: 24px; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;;">
+  <div data-id="element-1" style="box-sizing: border-box; display: grid; gap: 16px; border: 0px solid rgb(229, 231, 235);">
+    <div data-id="element-2" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-3" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <h1 data-id="element-4" style="box-sizing: border-box; font-size: 24px; font-weight: 700; padding-left: 16px; padding-right: 16px; line-height: 32px; border: 0px solid rgb(229, 231, 235); margin: 0px;">Заявка на хранение шин</h1></div>
+      <div data-id="element-5" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-6" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-7" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-8" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-9" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">✔ Гарантируем полную сохранность ваших шин
+            <br data-id="element-10" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ Приведем в надлежащий для хранения вид
+            <br data-id="element-11" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ Не нужно самому носить шины
+            <br data-id="element-12" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✔ <strong data-id="element-13" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Работаем по договору</strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-14" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-15" style="box-sizing: border-box; position: relative; width: 2495px; overflow: hidden; border: 0px solid rgb(229, 231, 235);">
+        <canvas width="1744" height="1080" data-id="element-16" style="box-sizing: border-box; display: block; vertical-align: middle; width: 2495px; animation: 2s cubic-bezier(0.4, 0, 0.6, 1) 0s infinite normal none running pulse; overflow: hidden; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); border-radius: 8px;"></canvas><img src="https://instantlyform-production.s3.eu-north-1.amazonaws.com/uploads/8nPunobFf5rs9TqzvwVurFBSjzOsCuiqcZNI32il.png" width="90%" height="250" data-id="element-17" style="box-sizing: border-box; display: block; vertical-align: middle; max-width: 100%; height: 1545.06px; position: absolute; left: 0px; top: 0px; width: 2495px; overflow: hidden; border: 0px solid rgb(229, 231, 235);"></div>
+      <div data-id="element-18" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-19" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-20" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-21" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-22" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-23" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">ПОДСКАЗКА:</strong>Размер ваших колес можно узнать по надписи на шинах.
+            <br data-id="element-24" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">На картинке <strong data-id="element-25" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">R16</strong>это диаметр который нужно знать.</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-26" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-27" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-28" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Диаметр ваших колес:</span></label>
+      <div iserror="false" placeholder="175/65/ R14" data-id="element-29" style="box-sizing: border-box; width: 2495px; overflow: hidden; background-color: rgb(255, 255, 255); font-size: 16px; line-height: 24px; font-weight: 400; color: rgb(0, 0, 0); outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; border: 0px solid rgb(229, 231, 235);">
+        <a data-id="element-30" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-31" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">R15 и меньше</div>
+          <div data-id="element-32" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-33" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-34" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">R16 и больше</div>
+          <div data-id="element-35" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+      </div>
+      <div data-id="element-36" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-37" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-38" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-39" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-40" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-41" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-42" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-43" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Срок хранения:</span></label>
+      <div iserror="false" data-id="element-44" style="box-sizing: border-box; width: 2495px; overflow: hidden; background-color: rgb(255, 255, 255); font-size: 16px; line-height: 24px; font-weight: 400; color: rgb(0, 0, 0); outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; border: 0px solid rgb(229, 231, 235);">
+        <a data-id="element-45" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-46" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">1 месяц</div>
+          <div data-id="element-47" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-48" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-49" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">2 месяца</div>
+          <div data-id="element-50" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-51" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-52" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">3 месяца</div>
+          <div data-id="element-53" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-54" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-55" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">4 месяца</div>
+          <div data-id="element-56" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-57" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-58" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">5 месяцев</div>
+          <div data-id="element-59" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-60" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-61" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">6 месяцев</div>
+          <div data-id="element-62" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-63" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-64" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">7 месяцев</div>
+          <div data-id="element-65" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-66" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-67" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">8 месяцев</div>
+          <div data-id="element-68" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-69" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-70" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">9 месяцев</div>
+          <div data-id="element-71" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-72" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-73" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">10 месяцев</div>
+          <div data-id="element-74" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-75" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-76" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">11 месяцев</div>
+          <div data-id="element-77" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-78" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border-width: 0px 0px 1px; border-style: solid; border-color: rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-79" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">12 месяцев</div>
+          <div data-id="element-80" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+        <a data-id="element-81" style="box-sizing: border-box; color: rgb(0, 0, 0); position: relative; display: flex; cursor: pointer; align-items: center; justify-content: space-between; gap: 16px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgba(107, 114, 128, 0.2); padding: 12px 16px; text-decoration: none;">
+          <div data-id="element-82" style="box-sizing: border-box; word-break: break-all; border: 0px solid rgb(229, 231, 235);">Постоянное хранение</div>
+          <div data-id="element-83" style="box-sizing: border-box; height: 16px; width: 16px; border: 0px solid rgb(229, 231, 235);"></div>
+        </a>
+      </div>
+      <div data-id="element-84" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-85" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-86" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-87" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-88" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">⚡ <strong data-id="element-89" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Постоянное хранение</strong>- дает приоритет записи на шиномонтаж и подвоз шин в оговоренный день.
+            <br data-id="element-90" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✅ R13-R15 ● 500р/месяц
+            <br data-id="element-91" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">✅ R16-R21 ● 600р/месяц
+            <br data-id="element-92" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">+100р за комплект если с дисками</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-93" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-94" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <h1 data-id="element-95" style="box-sizing: border-box; font-size: 24px; font-weight: 700; padding-left: 16px; padding-right: 16px; line-height: 32px; border: 0px solid rgb(229, 231, 235); margin: 0px;">❓ ЧТО СТОИТ ЗНАТЬ?</h1></div>
+      <div data-id="element-96" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-97" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-98" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-99" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-100" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-101" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Вы можете забрать свой комплект колес и резины в любой момент, не дожидаясь окончания срока хранения.</strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-102" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-103" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-104" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваш адрес (только Симферополь)</span></label>
+      <input placeholder="ул. Куда Приехать 1" field="[object Object]" data-id="element-105" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px; margin: 0px;">
+      <div data-id="element-106" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-107" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-108" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-109" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-110" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-111" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">📍 Специалист приедет по указанному адресу</strong>
+            <br data-id="element-112" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">📝Заключаете договор хранения и оплачиваете.
+            <br data-id="element-113" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">⚡Поможет загрузить колеса и отвезем на склад.
+            <br data-id="element-114" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><strong data-id="element-115" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);"><em data-id="element-116" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Процедура занимает не более 20 мин.</em></strong></p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-117" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-118" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-119" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Дата встречи:</span></label>
+      <div data-id="element-120" style="box-sizing: border-box; width: 2495px; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); padding: 4px;">
+        <div data-id="element-121" style="box-sizing: border-box; height: 34px; line-height: 34px; text-align: center; overflow: hidden; padding-left: 12px; padding-right: 12px; border: 0px solid rgb(229, 231, 235);">
+          <button type="button" data-id="element-122" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-123" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-124" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span><span data-id="element-125" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-126" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-127" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-128" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(0.494975, -0.494975, 0.494975, 0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-129" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: right; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-130" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; left: auto; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-131" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); left: 4px; border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span><span data-id="element-132" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); left: 0px; border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button>
+          <button type="button" data-id="element-133" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(112, 117, 121) none 0px; color: rgb(112, 117, 121); white-space: nowrap; text-align: left; float: right; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(112, 117, 121); border-radius: 4px; padding: 0px 4px; margin: 0px;"><i data-id="element-134" style="content: normal; position: static; top: auto; display: inline; width: auto; height: auto; vertical-align: baseline; box-sizing: border-box; transform-origin: 0px 0px; transform: none; border: 0px solid rgb(229, 231, 235); border-radius: 0px;"><span data-id="element-135" style="content: &quot;&quot;; position: relative; top: -1px; display: inline-block; width: 10px; height: 10px; vertical-align: middle; box-sizing: border-box; transform-origin: 5px 5px; transform: matrix(-0.494975, 0.494975, -0.494975, -0.494975, 0, 0); border-width: 2px 0px 0px 2px; border-style: solid; border-color: rgb(112, 117, 121); border-radius: 1px;"></span></i></button><span data-id="element-136" style="font-size: 14px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><button type="button" data-id="element-137" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(0, 0, 0) none 0px; color: rgb(0, 0, 0); white-space: nowrap; text-align: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(0, 0, 0); border-radius: 4px; padding: 0px 4px; margin: 0px;">Jun</button><button type="button" data-id="element-138" style="box-sizing: border-box; line-height: 34px; font-size: 14px; font-weight: 500; cursor: pointer; background-color: rgba(0, 0, 0, 0); outline: rgb(0, 0, 0) none 0px; color: rgb(0, 0, 0); white-space: nowrap; text-align: left; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; text-transform: none; appearance: button; border: 0px none rgb(0, 0, 0); border-radius: 4px; padding: 0px 4px; margin: 0px;">2024</button></span></div>
+        <div data-id="element-139" style="position: relative; height: 224px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <table data-id="element-140" style="table-layout: fixed; border-collapse: separate; border-spacing: 0px; width: 2487px; height: 224px; box-sizing: border-box; text-align: center; text-indent: 0px; border: 0px solid rgb(229, 231, 235);">
+            <thead data-id="element-141" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+              <tr data-id="element-142" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <th data-id="element-143" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Su</th>
+                <th data-id="element-144" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Mo</th>
+                <th data-id="element-145" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Tu</th>
+                <th data-id="element-146" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">We</th>
+                <th data-id="element-147" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Th</th>
+                <th data-id="element-148" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Fr</th>
+                <th data-id="element-149" style="font-weight: 500; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">Sa</th>
+              </tr>
+            </thead>
+            <tbody data-id="element-150" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+              <tr data-id="element-151" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-05-26" data-id="element-152" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-153" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">26</div>
+                </td>
+                <td title="2024-05-27" data-id="element-154" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-155" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">27</div>
+                </td>
+                <td title="2024-05-28" data-id="element-156" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-157" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">28</div>
+                </td>
+                <td title="2024-05-29" data-id="element-158" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-159" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">29</div>
+                </td>
+                <td title="2024-05-30" data-id="element-160" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-161" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">30</div>
+                </td>
+                <td title="2024-05-31" data-id="element-162" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-163" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">31</div>
+                </td>
+                <td title="2024-06-01" data-id="element-164" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-165" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">1</div>
+                </td>
+              </tr>
+              <tr data-id="element-166" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-02" data-id="element-167" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-168" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">2</div>
+                </td>
+                <td title="2024-06-03" data-id="element-169" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-170" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">3</div>
+                </td>
+                <td title="2024-06-04" data-id="element-171" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-172" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">4</div>
+                </td>
+                <td title="2024-06-05" data-id="element-173" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-174" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">5</div>
+                </td>
+                <td title="2024-06-06" data-id="element-175" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-176" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">6</div>
+                </td>
+                <td title="2024-06-07" data-id="element-177" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-178" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">7</div>
+                </td>
+                <td title="2024-06-08" data-id="element-179" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-180" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">8</div>
+                </td>
+              </tr>
+              <tr data-id="element-181" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-09" data-id="element-182" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-183" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">9</div>
+                </td>
+                <td title="2024-06-10" data-id="element-184" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-185" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">10</div>
+                </td>
+                <td title="2024-06-11" data-id="element-186" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-187" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">11</div>
+                </td>
+                <td title="2024-06-12" data-id="element-188" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-189" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">12</div>
+                </td>
+                <td title="2024-06-13" data-id="element-190" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-191" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">13</div>
+                </td>
+                <td title="2024-06-14" data-id="element-192" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-193" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">14</div>
+                </td>
+                <td title="2024-06-15" data-id="element-194" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-195" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">15</div>
+                </td>
+              </tr>
+              <tr data-id="element-196" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-16" data-id="element-197" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-198" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">16</div>
+                </td>
+                <td title="2024-06-17" data-id="element-199" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-200" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">17</div>
+                </td>
+                <td title="2024-06-18" data-id="element-201" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-202" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">18</div>
+                </td>
+                <td title="2024-06-19" data-id="element-203" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-204" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">19</div>
+                </td>
+                <td title="2024-06-20" data-id="element-205" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-206" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">20</div>
+                </td>
+                <td title="2024-06-21" data-id="element-207" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-208" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">21</div>
+                </td>
+                <td title="2024-06-22" data-id="element-209" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-210" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">22</div>
+                </td>
+              </tr>
+              <tr data-id="element-211" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-23" data-id="element-212" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-213" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">23</div>
+                </td>
+                <td title="2024-06-24" data-id="element-214" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-215" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">24</div>
+                </td>
+                <td title="2024-06-25" data-id="element-216" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-217" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">25</div>
+                </td>
+                <td title="2024-06-26" data-id="element-218" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-219" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">26</div>
+                </td>
+                <td title="2024-06-27" data-id="element-220" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-221" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">27</div>
+                </td>
+                <td title="2024-06-28" data-id="element-222" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-223" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">28</div>
+                </td>
+                <td title="2024-06-29" data-id="element-224" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-225" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">29</div>
+                </td>
+              </tr>
+              <tr data-id="element-226" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <td title="2024-06-30" data-id="element-227" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(0, 72, 143); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-228" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">30</div>
+                </td>
+                <td title="2024-07-01" data-id="element-229" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-230" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">1</div>
+                </td>
+                <td title="2024-07-02" data-id="element-231" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-232" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">2</div>
+                </td>
+                <td title="2024-07-03" data-id="element-233" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-234" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">3</div>
+                </td>
+                <td title="2024-07-04" data-id="element-235" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-236" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">4</div>
+                </td>
+                <td title="2024-07-05" data-id="element-237" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-238" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">5</div>
+                </td>
+                <td title="2024-07-06" data-id="element-239" style="cursor: pointer; vertical-align: middle; height: 32px; font-size: 12px; color: rgb(204, 204, 204); background-color: rgba(0, 0, 0, 0); box-sizing: border-box; border: 0px solid rgb(229, 231, 235); padding: 0px;">
+                  <div data-id="element-240" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">6</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div data-id="element-241" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-242" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-243" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-244" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-245" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">Выберите подходящую дату когда будет удобно встретить специалиста и передать шины на хранение.
+            <br data-id="element-246" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-247" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <div iserror="false" data-id="element-248" style="box-sizing: border-box; color: rgb(0, 0, 0); max-width: none; font-size: 16px; line-height: 24px; width: 2495px; white-space: break-spaces; overflow-wrap: break-word; border: 0px solid rgb(229, 231, 235); padding: 12px 16px;">
+        <p data-id="element-249" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px 0px 18.2857px;">⭐ <strong data-id="element-250" style="box-sizing: border-box; font-weight: 600; color: rgb(0, 0, 0); border: 0px solid rgb(229, 231, 235);">ШИНЫ ХРАНЯТСЯ В СООТВЕТСТВИИ С ГОСТ Р 54266-2010, КОТОРЫЙ ВКЛЮЧАЕТ В СЕБЯ:</strong>
+          <br data-id="element-251" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+        </p>
+        <ul data-id="element-252" style="box-sizing: border-box; list-style: outside none disc; border: 0px solid rgb(229, 231, 235); padding: 0px 0px 0px 25.1429px; margin: 18.2857px 0px 0px;">
+          <li data-id="element-253" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-254" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Температура от 18 до 35 С°</p>
+          </li>
+          <li data-id="element-255" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-256" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Защита от прямых солнечных лучей</p>
+          </li>
+          <li data-id="element-257" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-258" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Промышленная вентиляция</p>
+          </li>
+          <li data-id="element-259" style="box-sizing: border-box; margin-top: 4.57143px; margin-bottom: 4.57143px; padding-left: 6.85714px; border: 0px solid rgb(229, 231, 235);">
+            <p data-id="element-260" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 18.2857px 0px;">Влажность воздуха 50-80%</p>
+          </li>
+        </ul>
+      </div>
+      <div data-id="element-261" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-262" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+    </div>
+    <div data-id="element-263" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-264" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-265" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваш номер телефона</span></label>
+      <div field="[object Object]" placeholder="Телефон" data-id="element-266" style="box-sizing: border-box; width: 2495px; border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-267" style="box-sizing: border-box; position: relative; border: 0px solid rgb(229, 231, 235);">
+          <div data-id="element-268" style="box-sizing: border-box; position: absolute; top: 0px; bottom: 0px; display: flex; align-items: center; left: 0px; border: 0px solid rgb(229, 231, 235);">
+            <div clearable="false" data-id="element-269" style="box-sizing: border-box; height: 48px; width: 72px; background-color: rgba(0, 0, 0, 0); padding-top: 0px; padding-bottom: 0px; color: rgb(107, 114, 128); border: 0px solid rgba(0, 0, 0, 0); border-radius: 6px;">
+              <div data-id="element-270" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+                <ul data-id="element-271" style="box-sizing: border-box; list-style: outside none none; background-color: rgb(255, 255, 255); border: 0px solid rgb(229, 231, 235); padding: 0px; margin: 0px;">
+                  <li data-id="element-272" style="box-sizing: border-box; font-size: 16px; line-height: 24px; border: 0px none rgba(107, 114, 128, 0.2);"><a data-id="element-273" style="box-sizing: border-box; color: rgb(0, 0, 0); display: flex; cursor: pointer; align-items: center; justify-content: space-between; border: 0px solid rgb(229, 231, 235); padding: 12px 16px; text-decoration: none;"><span data-id="element-274" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">🇺🇦</span><div data-id="element-275" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-id="element-276" style="box-sizing: border-box; display: block; vertical-align: middle; height: 16px; width: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" data-id="element-277" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"></path></svg></div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <input placeholder="+380(00) 000-00-00" data-id="element-278" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px 12px 72px; margin: 0px;">
+        </div>
+      </div>
+      <div data-id="element-279" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-280" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-281" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-282" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-283" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><strong data-id="element-284" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Начните с </strong>+7 </p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-285" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <label data-id="element-286" style="box-sizing: border-box; margin-bottom: 4px; display: block; padding-left: 16px; padding-right: 16px; font-size: 14px; line-height: 20px; text-transform: uppercase; color: rgb(51, 144, 236); border: 0px solid rgb(229, 231, 235);"><span data-id="element-287" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Ваше Имя:</span></label>
+      <input placeholder="Имя Фамилия" field="[object Object]" data-id="element-288" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 400; line-height: 24px; color: rgb(0, 0, 0); appearance: none; background-color: rgb(255, 255, 255); width: 2495px; outline: rgba(0, 0, 0, 0) solid 2px; outline-offset: 2px; box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s; border: 0px none rgb(107, 114, 128); border-radius: 0px; padding: 12px 16px; margin: 0px;">
+      <div data-id="element-289" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-290" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-291" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-292" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-293" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;">Имя и номер телефона будут идентеифицировать вас как владельца</p>
+        </div>
+      </div>
+    </div>
+    <div data-id="element-294" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+      <button iserror="false" data-id="element-295" style="box-sizing: border-box; font-family: Figtree, Nunito, ui-sans-serif, system-ui, sans-serif, &quot;apple color emoji&quot;, &quot;segoe ui emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;noto color emoji&quot;; font-feature-settings: normal; font-variation-settings: normal; font-size: 16px; font-weight: 500; line-height: 24px; color: rgb(255, 255, 255); text-transform: none; appearance: button; background-color: rgb(51, 144, 236); cursor: pointer; width: 2495px; text-align: center; border: 0px solid rgb(229, 231, 235); padding: 12px 16px; margin: 0px;">Отправить</button>
+      <div data-id="element-296" style="box-sizing: border-box; display: none; border: 0px solid rgb(229, 231, 235);">
+        <p data-id="element-297" style="box-sizing: border-box; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(223, 63, 64); border: 0px solid rgb(229, 231, 235); margin: 4px 0px 0px;"></p>
+      </div>
+      <div data-id="element-298" style="box-sizing: border-box; margin-top: 4px; padding-left: 16px; padding-right: 16px; font-size: 12px; line-height: 16px; color: rgb(112, 117, 121); border: 0px solid rgb(229, 231, 235);">
+        <div data-id="element-299" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">
+          <p data-id="element-300" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235); margin: 0px;"><em data-id="element-301" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);">Нажимая кнопку "отправить" вы даете согласие обработка персональных данных.</em>
+            <br data-id="element-302" style="box-sizing: border-box; border: 0px solid rgb(229, 231, 235);"><strong data-id="element-303" style="box-sizing: border-box; font-weight: 700; border: 0px solid rgb(229, 231, 235);">Затем свободный менеджер свяжется с вами, чтобы подтвердить заявку.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-<div class="loading__label"></div>
-<div class="loading__input"></div>
-</div>
-<div>
-<div class="loading__label"></div>
-<div class="loading__input" style="height:16rem"></div>
-</div>
-</div>
-</div>
-</div>
-</body></html>
